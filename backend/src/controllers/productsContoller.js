@@ -2,13 +2,13 @@ const Pool = require('pg').Pool
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
-  database: 'sistema_products',
+  database: 'sistema_produtos',
   password: 'Strada',
-  port: 5433,
+  port: 5432,
 })
 
-const getProducts = (request, response) => {
-  pool.query('SELECT * FROM products ORDER BY id DESC', (error, results) => {
+const getProdutos = (request, response) => {
+  pool.query('SELECT * FROM produtos ORDER BY id DESC', (error, results) => {
     if (error) {
       throw error
     }
@@ -16,10 +16,10 @@ const getProducts = (request, response) => {
   })
 }
 
-const getProductsById = (request, response) => {
+const getProdutosById = (request, response) => {
   const id = parseInt(request.params.id)
 
-  pool.query('SELECT * FROM products WHERE id = $1', [id], (error, results) => {
+  pool.query('SELECT * FROM produtos WHERE id = $1', [id], (error, results) => {
     if (error) {
       throw error
     }
@@ -27,24 +27,24 @@ const getProductsById = (request, response) => {
   })
 }
 
-const createProducts = (request, response) => {
-  const { name,inventory } = request.body
+const createProdutos = (request, response) => {
+  const { nome, inventory } = request.body
 
-  pool.query('INSERT INTO products (name,inventory) VALUES ($1, $2)',[name, inventory], (error, result) => {
+  pool.query('INSERT INTO produtos (nome, inventory) VALUES ($1, $2)',[nome,  inventory], (error, result) => {
     if (error) {
       throw error
     }
-    response.status(201).send(`Produto criada com sucesso.`)
+    response.status(201).send(`Produto criado com sucesso.`)
   })
 }
 
-const updateProducts = (request, response) => {
+const updateProdutos = (request, response) => {
   const id = parseInt(request.params.id)
-  const { name,inventory } = request.body
+  const { nome, inventory } = request.body
 
   pool.query(
-    'UPDATE products SET name = $1, inventory= $2,  WHERE id = $3',
-    [name,inventory ,id],
+    'UPDATE products SET nome = $1, inventory= $2,  WHERE id = $3',
+    [nome, inventory ,id],
     (error, result) => {
       if (error) {
         throw error
@@ -54,7 +54,7 @@ const updateProducts = (request, response) => {
   )
 }
 
-const deleteProducts = (request, response) => {
+const deleteProdutos = (request, response) => {
   const id = parseInt(request.params.id)
 
   pool.query('DELETE FROM products WHERE id = $1', [id], (error, result) => {
@@ -66,10 +66,10 @@ const deleteProducts = (request, response) => {
 }
 
 module.exports = {
-  getProducts,
-  getProductsById,
-  createProducts,
-  updateProducts,
-  deleteProducts,
+  getProdutos,
+  getProdutosById,
+  createProdutos,
+  updateProdutos,
+  deleteProdutos,
   
 }
