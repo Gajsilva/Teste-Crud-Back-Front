@@ -28,13 +28,13 @@ const getMaterialById = (request, response) => {
 }
 
 const createMaterial = (request, response) => {
-  const { name,inventory } = request.body
+  const { nome,inventory } = request.body
 
-  pool.query('INSERT INTO mate (name) VALUES ($1, $2, $3)', [name,inventory ], (error, result) => {
+  pool.query('INSERT INTO material (nome, inventory) VALUES ($1, $2)', [nome,inventory ], (error, result) => {
     if (error) {
       throw error
     }
-    response.status(201).send(`Material criada com sucesso.`)
+    response.status(201).send(`Material criado com sucesso.`)
   })
 }
 
