@@ -1,10 +1,10 @@
 const Pool = require('pg').Pool
 const pool = new Pool({
-  user: 'postres',
+  user: 'postgres',
   host: 'localhost',
   database: 'sistema_products',
   password: 'Strada',
-  port: 5432,
+  port: 5433,
 })
 
 const getProducts = (request, response) => {
@@ -30,7 +30,7 @@ const getProductsById = (request, response) => {
 const createProducts = (request, response) => {
   const { name,inventory } = request.body
 
-  pool.query('INSERT INTO products (name) VALUES ($1, $2, $3)', [name,inventory ], (error, result) => {
+  pool.query('INSERT INTO products (name,inventory) VALUES ($1, $2)',[name, inventory], (error, result) => {
     if (error) {
       throw error
     }
