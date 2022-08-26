@@ -1,17 +1,16 @@
-form#main{
+form#produto{
     display: flex;
+    margin-left: 30px;
     justify-content: flex-start;
-    background: #fff;
-    border: 1px solid #ddd;
-
-  
+    max-width: 380px;
+    margin-top: -50px;
 }
 
-form#main input {
+form#produto input {
     margin-bottom: 10px;
 }
 
-form#main input[type=text] {
+form#produto input[type=text] {
     height: 38px;
     border-radius: 4px;
     border: 1px solid #ddd;
@@ -19,7 +18,7 @@ form#main input[type=text] {
     font-size: 14px;
 }
 
-form#main button {
+form#produto button {
     padding: 10px 20px;
     border-radius: 4px;
     border: 0;

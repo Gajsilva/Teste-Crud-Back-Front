@@ -2,7 +2,7 @@ import React, { Component} from "react";
 
 import './produto.css'
 
-class Main extends Component{
+class Produto extends Component{
     state = {
         name: '',
         inventory:'',
@@ -11,17 +11,17 @@ class Main extends Component{
     render() {
         return(
             
-            <form action="" id="main" onSubmit={this.handleSubmit}>
+            <form action="" id="produto" onSubmit={this.handleSubmit}>
                 <input 
                     type="text"
-                    name="name"
+                    name="nome"
                     placeholder="Nome do produto"
                     onChange={this.handleChange}
                     value={this.state.name}
                 />
                 <input 
                     type="text"
-                    name="Material"
+                    name="inventory"
                     placeholder="Quantidade"
                     onChange={this.handleChange}
                     value={this.state.inventory}
@@ -33,4 +33,4 @@ class Main extends Component{
         )
     }
 }
-export default Main;
+export default Produto;

@@ -2,12 +2,15 @@ import React from "react";
 import { BrowserRouter } from 'react-router-dom'
 
 
-import Routes from './routes'
+
+import Material from "./pages/material";
+import Produto from './pages/produto'
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes/>
+      <Material/>
+      <Produto/>
    
     </BrowserRouter>
   );

@@ -1,10 +1,9 @@
 form#material{
     margin: 30px auto 0;
-    background: #fff;
-    border: 1px solid #ddd;
-
     display: flex;
-    
+    justify-content: flex-end;
+    margin-right: 30px;
+    margin-top: 50px;
 }
 
 form#material input {

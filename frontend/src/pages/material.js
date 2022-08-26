@@ -11,11 +11,11 @@ class Material extends Component{
     render() {
         return(
             
-            <form action="" id="main" onSubmit={this.handleSubmit}>
+            <form action="" id="material" onSubmit={this.handleSubmit}>
                 <input 
                     type="text"
-                    name="name"
-                    placeholder="Nome do produto"
+                    name="nome"
+                    placeholder="Nome do Material"
                     onChange={this.handleChange}
                     value={this.state.name}
                 />
