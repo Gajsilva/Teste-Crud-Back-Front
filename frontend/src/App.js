@@ -2,16 +2,16 @@ import React from "react";
 import { BrowserRouter } from 'react-router-dom'
 
 
-
-import Material from "./pages/material";
-import Produto from './pages/produto'
+import Main from './components/main'
+import Material from "./components/material";
+import Produto from './components/produto'
 
 function App() {
   return (
     <BrowserRouter>
       <Material/>
       <Produto/>
-   
+      <Main/>
     </BrowserRouter>
   );
 }

@@ -1,16 +1,13 @@
-form#material{
-    margin: 30px auto 0;
+form#produto{
     display: flex;
-    justify-content: flex-end;
-    margin-right: 30px;
-    margin-top: 50px;
+    margin-left: 40px;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 280px;
+    margin-top: -127px;
 }
 
-form#material input {
-    margin-bottom: 10px;
-}
-
-form#material input[type=text] {
+form#produto input[type=text] {
     height: 38px;
     border-radius: 4px;
     border: 1px solid #ddd;
@@ -18,7 +15,11 @@ form#material input[type=text] {
     font-size: 14px;
 }
 
-form#material button {
+form#produto input {
+    margin-top: 5px;
+}
+
+form#produto button {
     padding: 10px 20px;
     border-radius: 4px;
     border: 0;
@@ -27,4 +28,5 @@ form#material button {
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
+    margin-top: 5px;
 }
