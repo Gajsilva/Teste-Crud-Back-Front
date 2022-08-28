@@ -1,17 +1,17 @@
-import React from "react";
-import { BrowserRouter } from 'react-router-dom'
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 
-import Main from './components/main'
-import Material from "./components/material";
-import Produto from './components/produto'
+import Main from './components/main';
+import Material from './components/material';
+import Produto from './components/produto';
 
 function App() {
   return (
     <BrowserRouter>
+      <Main/>
       <Material/>
       <Produto/>
-      <Main/>
     </BrowserRouter>
   );
 }

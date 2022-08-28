@@ -1,7 +1,22 @@
-#main{
-    max-height: 200px;
-    max-width: 300px;
-    display: flex;
-    justify-content: center;
-    background-color:white;
+section#post-list{
+    width: 100%;
+    max-width: 580px;
+    height: 500px;
+    margin: 0 auto;
+    padding: 0 30px;
+    background-color: white;
+    overflow-y: scroll;
 }
+
+section#post-list article header {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    
+}
+
+section#post-list article header span {
+    padding: 5px;
+}
+
