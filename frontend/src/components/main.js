@@ -16,11 +16,13 @@ class Main extends Component {
 
     }
 
-    async  deletePost() {
-        await api.delete('produtos/:id')
+    handleDelete = async id =>  {
+        await api.delete(`/produtos/${id}`)
+
+        
     }
 
-    render() {
+        render() {
         return(
             <section id='post-list'>
                 { this.state.main.map(post =>(
@@ -34,7 +36,8 @@ class Main extends Component {
                         </button>
                             
                         <button
-                            onClick={() => this.deletePost()}
+                            
+                            onClick={() => this.handleDelete()}
                         >
                             <BiTrash>
                             </BiTrash>
