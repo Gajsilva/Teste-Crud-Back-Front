@@ -19,7 +19,7 @@ const getProdutos = (request, response) => {
 const getProdutosById = (request, response) => {
   const id = parseInt(request.params.id)
 
-  pool.query('SELECT * FROM produtos WHERE id = $1', [id], (error, results) => {
+  pool.query('SELECT * FROM produtos id = $1', [id], (error, results) => {
     if (error) {
       throw error
     }
@@ -43,7 +43,7 @@ const updateProdutos = (request, response) => {
   const { nome, inventory } = request.body
 
   pool.query(
-    'UPDATE products SET nome = $1, inventory= $2,  WHERE id = $3',
+    'UPDATE produtos SET nome = $1, inventory= $2,  WHERE id = $3',
     [nome, inventory ,id],
     (error, result) => {
       if (error) {
@@ -57,7 +57,7 @@ const updateProdutos = (request, response) => {
 const deleteProdutos = (request, response) => {
   const id = parseInt(request.params.id)
 
-  pool.query('DELETE FROM products WHERE id = $1', [id], (error, result) => {
+  pool.query('DELETE FROM produtos WHERE id = $1', [id], (error, result) => {
     if (error) {
       throw error
     }

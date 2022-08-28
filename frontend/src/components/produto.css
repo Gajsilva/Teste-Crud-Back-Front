@@ -7,7 +7,7 @@ form#produto{
     margin-top: -127px;
 }
 
-form#produto input[type=text] {
+form#produto input{
     height: 38px;
     border-radius: 4px;
     border: 1px solid #ddd;

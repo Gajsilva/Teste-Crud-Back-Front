@@ -36,7 +36,7 @@ export default function Produto() {
                     
                 />
                 <input 
-                    type="text"
+                    type="number"
                     name="inventory"
                     placeholder="Quantidade"
                     onChange={e=>setInventory(e.target.value)}
