@@ -54,14 +54,14 @@ const updateProdutos = (request, response) => {
   )
 }
 
-const deleteProdutos = (request, response) => {
+const deleteProdutos = async (request, response) => {
   const id = parseInt(request.params.id)
 
-  pool.query('DELETE FROM produtos WHERE id = $1', [id], (error, result) => {
+  await pool.query('DELETE FROM produtos WHERE id = $1', [id], (error, result) => {
     if (error) {
       throw error
     }
-    response.status(200).send(`Produto removido com sucesso com o identificador: ${id}`)
+    response.status(203).send(`Produto removido com sucesso com o identificador: ${id}`)
   })
 }
 

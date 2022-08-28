@@ -6,27 +6,26 @@ import './main.css';
 
 class Main extends Component {
     state = {
-        main: [],
+        posts: [],
     };
 
     async componentDidMount() {
         const response = await api.get('produtos');
 
-        this.setState({main: response.data});
+        this.setState({posts: response.data});
 
     }
 
-    handleDelete = async id =>  {
-        await api.delete(`/produtos/${id}`)
-
+    handleDelete = async (id) =>  {
+         await api.delete(`/produtos/${id}`)
         
     }
 
         render() {
         return(
             <section id='post-list'>
-                { this.state.main.map(post =>(
-                <article>
+                { this.state.posts.map(post =>(
+                <article key={post.id}>
 
                     <div className='post-produtos'>
                         <span id='nomeproduto'>Produto: {post.nome}</span>
@@ -36,8 +35,7 @@ class Main extends Component {
                         </button>
                             
                         <button
-                            
-                            onClick={() => this.handleDelete()}
+                            onClick={() => this.handleDelete(post.id)}
                         >
                             <BiTrash>
                             </BiTrash>

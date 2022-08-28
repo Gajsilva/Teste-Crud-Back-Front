@@ -16,15 +16,11 @@ class Material extends Component{
                     type="text"
                     name="nome"
                     placeholder="Nome do Material"
-                    onChange={this.handleChange}
-                    value={this.state.name}
                 />
                 <input 
                     type="text"
                     name="Material"
                     placeholder="Quantidade"
-                    onChange={this.handleChange}
-                    value={this.state.inventory}
                 />
                 <button type= "submit">Enviar</button>
             </form>
