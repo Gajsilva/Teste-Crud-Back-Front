@@ -1,13 +1,30 @@
 import React, { Component} from 'react';
 import api from '../services/api';
 import { BiEditAlt, BiTrash } from "react-icons/bi";
+import Modal from './modal';
+
 import './main.css';
 
-
 class Main extends Component {
-    state = {
-        posts: [],
-    };
+    
+    constructor() {
+        super();
+        this.state = {
+            posts:[],  
+            show: false,
+        };
+        this.showModal = this.showModal.bind(this);
+        this.hideModal = this.hideModal.bind(this);
+      }
+
+      showModal = () => {
+        this.setState({ show: true });
+      };
+    
+      hideModal = () => {
+        this.setState({ show: false });
+      };
+    
 
     async componentDidMount() {
         const response = await api.get('produtos');
@@ -21,6 +38,9 @@ class Main extends Component {
         
     }
 
+
+
+
         render() {
         return(
             <section id='post-list'>
@@ -30,7 +50,13 @@ class Main extends Component {
                     <div className='post-produtos'>
                         <span id='nomeproduto'>Produto: {post.nome}</span>
                         <span id='nomequantidade'>Qtde: {post.inventory}</span>
-                        <button >
+                        <Modal show={this.state.show} handleClose={this.hideModal}>
+                      
+                        </Modal>
+                        <button
+                            type="button"
+                            onClick={this.showModal}
+                        >
                             <BiEditAlt></BiEditAlt>
                         </button>
                             
@@ -44,8 +70,13 @@ class Main extends Component {
                 </article>
                 ))}
             </section>
-        )
+
+       
+     
+     
+     )
     }
+ 
 }
 
 export default Main;

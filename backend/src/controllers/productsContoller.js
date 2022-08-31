@@ -43,7 +43,7 @@ const updateProdutos = (request, response) => {
   const { nome, inventory } = request.body
 
   pool.query(
-    'UPDATE produtos SET nome = $1, inventory= $2,  WHERE id = $3',
+    'UPDATE produtos SET nome = $1, inventory= $2, id = $3',
     [nome, inventory ,id],
     (error, result) => {
       if (error) {
@@ -54,10 +54,10 @@ const updateProdutos = (request, response) => {
   )
 }
 
-const deleteProdutos = async (request, response) => {
+const deleteProdutos =  (request, response) => {
   const id = parseInt(request.params.id)
 
-  await pool.query('DELETE FROM produtos WHERE id = $1', [id], (error, result) => {
+  pool.query('DELETE FROM produtos WHERE id = $1', [id], (error, result) => {
     if (error) {
       throw error
     }
